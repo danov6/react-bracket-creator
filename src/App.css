@@ -1,0 +1,122 @@
+:root {
+  --white: #dfdfdf;
+  --black: #222;
+}
+
+body {
+  margin: 0;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#navbar {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  width: 100%;
+  /* padding: 1%; */
+  display: flex;
+  justify-content: flex-end;
+}
+#navbar a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: .2s;
+}
+#navbar a:hover {
+  font-size: 1.4em;
+}
+#home {
+  background-color: var(--black);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+#home > h1 {
+  color: var(--white);
+}
+#home button.answers {
+  width: 70%;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin: 0.5em;
+  border: 1px solid var(--black);
+  cursor: pointer;
+  transition: .1s;
+  text-transform: capitalize;
+}
+#home button.answers:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+#home button.back {
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+}
+#home button.back:hover {
+  text-decoration: underline;
+}
+#bracket .cell {
+  width: 18vw; 
+  border-bottom: 1px solid #000;
+  line-height: 0;
+}
+.bracket_header {
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  text-align: center;
+}
+.bracket_container {
+  display: flex;
+  height: 70vh;
+  margin-top: 15vh;
+  margin-left: 5vw;
+}
+.container {
+  width: 55vw;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 1em 2em;
+}
+#home td.que {
+  font-weight: bold;
+  white-space: nowrap;
+}
+#home td.ans {
+  white-space: nowrap;
+}
+#home .generate,
+#home .startover {
+  width: 70%;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin: 0.2em;
+  border: 1px solid var(--black);
+  cursor: pointer;
+  transition: .1s;
+  text-transform: capitalize;
+}
+#home .generate:hover,
+#home .startover:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+#home .generate {
+  margin-top: 2em;
+}
+#home h3.confirmtitle {
+  padding: 0em 3em;
+  text-align: center;
+}
