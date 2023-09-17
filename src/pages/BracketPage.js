@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Cell } from '../Components/Cell';
+import { Bracket } from '../Components/Bracket';
 
-export function Bracket({ answers }) {
+export function BracketPage({ configs }) {
     const navigate = useNavigate();
     const [ bracketSize, setBracketSize ] = useState(0);
     const [ players, setPlayers ] = useState({});
@@ -10,20 +10,17 @@ export function Bracket({ answers }) {
     const [ title, setTitle ] = useState("Test Name");
 
     useEffect(() => {
-        if(answers.length == 0){
+        if(configs.length == 0){
             navigate("/");
         } else {
-            console.log(answers[0][1]);
-            setBracketSize(answers[0][1]);
+            setBracketSize(configs[0][1]);
         }
     }, []);
     return (
     <div id="bracket">
         <div class="bracket_header">{title}</div>
         <div class="bracket_container">
-            <div style={{display: "grid", }}>
-                {Array.from({length: bracketSize}, (_, i) => <Cell key={i} id={i} setPlayers={setPlayers}/>)}
-            </div>
+            <Bracket setPlayers={setPlayers} bracketSize={bracketSize}/>
         </div>
     </div>
     )

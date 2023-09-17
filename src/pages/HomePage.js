@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import QuestionData from '../data/QuestionData';
 import { Finished } from '../Components/Finished';
 import { Questionnaire } from '../Components/Questionnaire';
 
-export function Home({ answers, setAnswers }) {
+export function HomePage({ configs, setConfigs }) {
   const [ page, setPage ] = useState(0);
-
-  const handleAnswers = (ans) => {
-    setAnswers([
-        ...answers,
+  const handleConfigs = (ans) => {
+    setConfigs([
+        ...configs,
         ans
     ]);
     setPage(prev => prev + 1);
@@ -16,13 +15,13 @@ export function Home({ answers, setAnswers }) {
   const handlePage = (p) => {
     setPage(prev => prev - 1);
     const index = p - 1; // undo previous answer
-    setAnswers(prev => prev.filter((_,i) => {
-        return i != index;
+    setConfigs(prev => prev.filter((_,i) => {
+        return i !== index;
     }));
   };
   const startOver = () => {
       setPage(0);
-      setAnswers([]);
+      setConfigs([]);
   };
   return (
     <div id="home">
@@ -30,13 +29,13 @@ export function Home({ answers, setAnswers }) {
         <div className="container">
             {QuestionData[page] ? 
                 <Questionnaire 
-                handleAnswers={handleAnswers}
+                handleConfigs={handleConfigs}
                 handlePage={handlePage}
                 Question={QuestionData}
                 page={page}
                 /> : 
                 <Finished 
-                answers={answers}
+                configs={configs}
                 startOver={startOver}
                 />
             }

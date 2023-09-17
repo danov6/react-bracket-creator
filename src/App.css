@@ -80,6 +80,20 @@ body {
   margin-top: 15vh;
   margin-left: 5vw;
 }
+.round-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+input.cell {
+  border-bottom: 1px solid #000;
+  border-left: 0px;
+  border-top: 0px;
+}
+input.cell:focus-visible {
+  outline: none;
+}
 .container {
   width: 55vw;
   min-height: 40vh;
