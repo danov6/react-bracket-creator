@@ -5,32 +5,36 @@ import { Questionnaire } from '../Components/Questionnaire';
 
 export function HomePage({ configs, setConfigs }) {
   const [ page, setPage ] = useState(0);
-  const handleConfigs = (ans) => {
-    setConfigs([
-        ...configs,
-        ans
-    ]);
+  //Handle configs
+  const handleConfigs = (config) => {
+    setConfigs([ ...configs, config]);
     setPage(prev => prev + 1);
   };
-  const handlePage = (p) => {
+  //Handle page
+  const prevPage = (p) => {
     setPage(prev => prev - 1);
     const index = p - 1; // undo previous answer
-    setConfigs(prev => prev.filter((_,i) => {
-        return i !== index;
-    }));
+    setConfigs(prev => prev.filter((_,i) => { return i !== index; }));
   };
+  //Start over
   const startOver = () => {
       setPage(0);
       setConfigs([]);
   };
+  //Reset all previous settings
+  useEffect(() => {
+    localStorage.removeItem('bracket_settings');
+    setConfigs([]);
+  }, [])
   return (
     <div id="home">
         <h1>Bracket Generator</h1>
         <div className="container">
             {QuestionData[page] ? 
                 <Questionnaire 
+                configs={configs}
                 handleConfigs={handleConfigs}
-                handlePage={handlePage}
+                prevPage={prevPage}
                 Question={QuestionData}
                 page={page}
                 /> : 
@@ -43,4 +47,3 @@ export function HomePage({ configs, setConfigs }) {
     </div>
   )
 }
-<Questionnaire />

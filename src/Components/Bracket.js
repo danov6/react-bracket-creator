@@ -6,7 +6,7 @@ export function Bracket({ setPlayers, bracketSize }) {
     const numColumns = rounds[bracketSize] + 1;
     return (
         <div style={{display: 'flex', flexDirection: "row"}}>
-            {Array.from({length: numColumns}, (_, i) => <Round bracketSize={bracketSize} round={1 + i} setPlayers={setPlayers} numColumns={numColumns}/>)}
+            {Array.from({length: numColumns}, (_, i) => <Round key={i} bracketSize={bracketSize} round={1 + i} setPlayers={setPlayers} numColumns={numColumns}/>)}
         </div>
     )
 }

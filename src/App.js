@@ -6,6 +6,7 @@ import { BracketPage } from './pages/BracketPage';
 import { Navbar } from './Components/Navbar';
 
 function App() {
+  //Bracket settings [Ex: Bracket Size, # Seeded players  etc.]
   const [ configs, setConfigs ] = useState([]);
   return (
     <>

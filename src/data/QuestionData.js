@@ -1,11 +1,13 @@
 const QuestionData = [
     {
         question: "What is the size of the draw?",
-        answers: ["4", "8", "16", "32", "64"]
+        answers: ["4", "8", "16", "32"],
+        type: "text"
     },
     {
-        question: "Will there be seeded players?",
-        answers: ["Yes", "No"]
+        question: "How many seeded players are there?",
+        answers: ["4", "3", "2", "1", "0"],
+        type: "dropdown"
     }
 ];
   

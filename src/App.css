@@ -73,6 +73,14 @@ body {
   top: 10vh;
   width: 100vw;
   text-align: center;
+  outline: none;
+  border: none;
+  font-size: 1.5em;
+  background: none;
+}
+.bracket_header:placeholder{
+  color: #666;
+  font-style: italic;
 }
 .bracket_container {
   display: flex;
@@ -105,11 +113,11 @@ input.cell:focus-visible {
   padding: 1em 2em;
 }
 #home td.que {
-  font-weight: bold;
   white-space: nowrap;
 }
 #home td.ans {
   white-space: nowrap;
+  text-align: right;
 }
 #home .generate,
 #home .startover {
@@ -121,16 +129,47 @@ input.cell:focus-visible {
   cursor: pointer;
   transition: .1s;
   text-transform: capitalize;
+  font-weight: bold;
+  font-size: 0.9em;
 }
-#home .generate:hover,
 #home .startover:hover {
   background-color: var(--black);
   color: var(--white);
 }
+#home .generate:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
 #home .generate {
   margin-top: 2em;
+  text-decoration: none;
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  width: 67%;
 }
 #home h3.confirmtitle {
   padding: 0em 3em;
   text-align: center;
+}
+.button_menu {
+  position: fixed;
+  bottom: 2vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.button_menu button {
+  margin: 1vw;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: none;
+  border: 1px solid var(--black);
+  cursor: pointer;
+  transition: .1s;
+}
+.button_menu button:hover {
+  background-color: var(--black);
+  color: var(--white);
 }

@@ -7,7 +7,7 @@ export function Round({ round, bracketSize, setPlayers, numColumns }) {
         <div className="round-wrapper" style={{
             justifyContent: ((round === 2) ? "space-between": "space-around")
         }}>
-            {Array.from({length: numPlayers}, (_, i) => <Cell key={i} id={i} setPlayers={setPlayers} numColumns={numColumns}/>)}
+            {Array.from({length: numPlayers}, (_, i) => <Cell key={i} id={i} round={round} setPlayers={setPlayers} numColumns={numColumns}/>)}
         </div>
     )
 }

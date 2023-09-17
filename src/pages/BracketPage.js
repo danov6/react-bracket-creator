@@ -1,27 +1,35 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Bracket } from '../Components/Bracket';
+import { ButtonMenu } from '../Components/ButtonMenu';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export function BracketPage({ configs }) {
     const navigate = useNavigate();
     const [ bracketSize, setBracketSize ] = useState(0);
     const [ players, setPlayers ] = useState({});
-    const [ editMode, setEditMode ] = useState(false);
-    const [ title, setTitle ] = useState("Test Name");
-
+    const [ title, setTitle ] = useState("");
+    const [ bracketSettings, setBracketSettings ] = useLocalStorage('bracket_settings', configs);
+    const handleTitleChange = (e) => {
+        const value = e.target.value;
+        setTitle(value);
+    };
     useEffect(() => {
-        if(configs.length == 0){
+        if(configs.length != 0) setBracketSettings(configs);
+
+        if(bracketSettings.length == 0){
             navigate("/");
         } else {
-            setBracketSize(configs[0][1]);
+            setBracketSize(bracketSettings[0][1]);
         }
     }, []);
     return (
     <div id="bracket">
-        <div class="bracket_header">{title}</div>
-        <div class="bracket_container">
+        <input type="text" className="bracket_header" placeholder="Tournament Title" onChange={handleTitleChange} value={title} />
+        <div className="bracket_container">
             <Bracket setPlayers={setPlayers} bracketSize={bracketSize}/>
         </div>
+        <ButtonMenu settings={bracketSettings} />
     </div>
     )
 }
