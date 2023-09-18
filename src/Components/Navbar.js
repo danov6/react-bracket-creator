@@ -6,7 +6,7 @@ export function Navbar() {
   const location = useLocation();
   return (
     <div id="navbar">
-      <Link to="/about" style={{color: (location === "/") ? "white" : "black"}}>About</Link>
+      {location.pathname === "/" ? <Link to="/about" >About</Link> : ""}
     </div>
   )
 }

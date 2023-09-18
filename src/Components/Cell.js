@@ -12,7 +12,8 @@ export function Cell({ id, numColumns, round }) {
             borderRight: (id % 2 !== 0) ? "1px solid #000" : "none",
             width: (80 / numColumns) + "vw",
             maxWidth: "20vw",
-            paddingLeft: 5
+            paddingLeft: 5,
+            flexGrow: 0
         }} 
     placeholder={(round === 1) ? "Player #" + (id + 1) : ""} 
     />

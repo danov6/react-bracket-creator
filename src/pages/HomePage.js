@@ -28,7 +28,7 @@ export function HomePage({ configs, setConfigs }) {
   }, [])
   return (
     <div id="home">
-        <h1>Bracket Generator</h1>
+        <h1>Bracket Maker</h1>
         <div className="container">
             {QuestionData[page] ? 
                 <Questionnaire 
