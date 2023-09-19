@@ -1,7 +1,7 @@
 const QuestionData = [
     {
         question: "What is the size of the draw?",
-        answers: ["4", "8", "16", "32"],
+        answers: ["8", "16", "32"],
         type: "text"
     },
     {

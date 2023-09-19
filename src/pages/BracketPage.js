@@ -10,24 +10,26 @@ export function BracketPage({ configs }) {
     const [ players, setPlayers ] = useState({});
     const [ title, setTitle ] = useState("");
     const [ bracketSettings, setBracketSettings ] = useLocalStorage('bracket_settings', configs);
+    
     const handleTitleChange = (e) => {
         const value = e.target.value;
         setTitle(value);
     };
     useEffect(() => {
-        if(configs.length != 0) setBracketSettings(configs);
-
+        //save configs in localstorage
+        if(configs.length != 0){
+            setBracketSettings(configs);
+        }
+        //if nothing in localstorage go home
         if(bracketSettings.length == 0){
             navigate("/");
-        } else {
-            setBracketSize(bracketSettings[0][1]);
         }
     }, []);
     return (
     <div id="bracket">
         <input type="text" className="bracket_header" placeholder="Tournament Title" onChange={handleTitleChange} value={title} />
         <div className="bracket_container">
-            <Bracket setPlayers={setPlayers} bracketSize={bracketSize}/>
+            <Bracket setPlayers={setPlayers} bracketSettings={bracketSettings}/>
         </div>
         <ButtonMenu settings={bracketSettings} />
     </div>

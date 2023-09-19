@@ -173,3 +173,11 @@ input.cell:focus-visible {
   background-color: var(--black);
   color: var(--white);
 }
+.cell-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.cell-seed {
+  position: absolute;
+  padding-right: 1vw;
+}
