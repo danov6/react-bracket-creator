@@ -6,7 +6,7 @@ export function Navbar() {
   const location = useLocation();
   return (
     <div id="navbar">
-      {location.pathname === "/" ? <Link to="/about" >About</Link> : ""}
+      {/* {location.pathname === "/" ? <Link to="/about" >About</Link> : ""} */}
     </div>
   )
 }

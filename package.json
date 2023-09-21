@@ -1,5 +1,6 @@
 {
-  "name": "quick-site-gpt",
+  "name": "react-bracket-creator",
+  "homepage": "http://bracket.giovaldez.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

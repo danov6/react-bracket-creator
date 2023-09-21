@@ -111,6 +111,7 @@ input.cell:focus-visible {
   background-color: var(--white);
   border-radius: 5px;
   padding: 1em 2em;
+  justify-content: space-evenly;
 }
 #home td.que {
   white-space: nowrap;
@@ -121,8 +122,7 @@ input.cell:focus-visible {
 }
 #home .generate,
 #home .startover {
-  width: 70%;
-  padding: 0.5em;
+  width: 300px;
   border-radius: 5px;
   margin: 0.2em;
   border: 1px solid var(--black);
@@ -131,6 +131,8 @@ input.cell:focus-visible {
   text-transform: capitalize;
   font-weight: bold;
   font-size: 0.9em;
+  line-height: 2.1;
+  color: var(--black);
 }
 #home .startover:hover {
   background-color: var(--black);
@@ -146,7 +148,8 @@ input.cell:focus-visible {
   background-color: var(--black);
   color: var(--white);
   text-align: center;
-  width: 67%;
+  width: 300px;
+  line-height: 2.2;
 }
 #home h3.confirmtitle {
   padding: 0em 3em;
@@ -180,4 +183,5 @@ input.cell:focus-visible {
 .cell-seed {
   position: absolute;
   padding-right: 1vw;
+  font-size: 0.8em;
 }
