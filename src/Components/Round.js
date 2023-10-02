@@ -1,8 +1,10 @@
 import React from 'react'
 import { Cell } from './Cell';
 
-export function Round({ round, bracketSize, setPlayers, numColumns, numSeeds }) {
+export function Round({ round, bracketSize, numColumns, numSeeds }) {
     const numPlayers = bracketSize / (Math.pow(2, (round - 1)));
+    //const numSeeds = configs[]
+    //16: 
     const getSeedNumber = pos => {
         //seed placement
         const list = [0, (bracketSize - 1), ((bracketSize / 2)), ((bracketSize / 2) - 2)];
@@ -23,7 +25,6 @@ export function Round({ round, bracketSize, setPlayers, numColumns, numSeeds }) 
                 key={i} 
                 pos={i} 
                 round={round} 
-                setPlayers={setPlayers} 
                 numColumns={numColumns}
                 getSeedNumber={getSeedNumber}
                 />

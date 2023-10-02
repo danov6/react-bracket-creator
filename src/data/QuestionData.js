@@ -7,8 +7,13 @@ const QuestionData = [
     {
         question: "How many seeded players are there?",
         answers: ["4", "3", "2", "1", "0"],
-        type: "dropdown"
+        type: "text"
     }
+    // {
+    //     question: "Number of byes?",
+    //     answers: ["6", "5", "4", "3", "2", "1", "0", "Not Sure"],
+    //     type: "text"
+    // }
 ];
   
   export default QuestionData;

@@ -1,5 +1,4 @@
 import React from 'react'
-import { isLet } from '@babel/types';
 
 export function Cell({ pos, round, numColumns, getSeedNumber }) {
   const fontColor = round == 1 && getSeedNumber(pos) != "" ? "#ff2525": "#000";

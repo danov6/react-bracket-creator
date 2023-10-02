@@ -6,8 +6,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export function BracketPage({ configs }) {
     const navigate = useNavigate();
-    const [ players, setPlayers ] = useState({}); //TODO: store players in state for later
-    const [ title, setTitle ] = useState("");
+    const [ title, setTitle ] = useLocalStorage('bracket_title', "");
     const [ bracketSettings, setBracketSettings ] = useLocalStorage('bracket_settings', configs);
     
     const handleTitleChange = (e) => {
@@ -16,19 +15,15 @@ export function BracketPage({ configs }) {
     };
     useEffect(() => {
         //save configs in localstorage
-        if(configs.length != 0){
-            setBracketSettings(configs);
-        }
+        if(configs.length != 0) setBracketSettings(configs);
         //if nothing in localstorage go home
-        if(bracketSettings.length == 0){
-            navigate("/");
-        }
+        if(bracketSettings.length == 0) navigate("/");
     }, []);
     return (
     <div id="bracket">
-        <input type="text" className="bracket_header" placeholder="Tournament Name" onChange={handleTitleChange} value={title} />
+        <input type="text" className="bracket_header" placeholder="Tournament Title" onChange={handleTitleChange} value={title} />
         <div className="bracket_container">
-            <Bracket setPlayers={setPlayers} bracketSettings={bracketSettings}/>
+            <Bracket bracketSettings={bracketSettings}/>
         </div>
         <ButtonMenu settings={bracketSettings} />
     </div>
