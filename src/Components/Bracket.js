@@ -1,7 +1,3 @@
-import { useContext } from 'react';
-import { Round } from './Round';
-import BracketContext from '../context/BracketContext';
-
 import { Match } from './Match';
 import MatchData from '../data/MatchData';
 import BracketTheme from '../themes/BracketTheme';
@@ -15,17 +11,25 @@ export function Bracket({ bracketSettings }) {
     const numSeeds = bracketSettings[1][1];
     const numColumns = rounds[bracketSize] + 1;
 
+    const generateMatches = () => {
+        // [{
+        //     "id": 1,
+        //     "nextMatchId": 2, // Id for the nextMatch in the bracket, if it's final match it must be null OR undefined
+        //     "participants": [
+        //         {
+        //         "name": "Nolan Comicossy"
+        //         },
+        //         {
+        //         "name": "bye"
+        //         }
+        //     ]
+        // }]
+
+
+    };
+
     return (
         <div style={{display: 'flex', flexDirection: "row"}}>
-            {/* {Array.from({length: numColumns}, (_, i) => 
-                <Round 
-                    key={i} 
-                    bracketSize={bracketSize} 
-                    round={1 + i} 
-                    numColumns={numColumns}
-                    numSeeds={numSeeds}
-                />
-            )} */}
             <SingleEliminationBracket
                 matches={MatchData}
                 matchComponent={Match}
